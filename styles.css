@@ -1,0 +1,104 @@
+/* ألوان الوضع العادي */
+:root {
+    --bg-color: #f9fafb;
+    --text-color: #111827;
+    --primary-color: #4f46e5;
+    --secondary-color: #22c55e;
+    --button-bg: #4f46e5;
+    --button-text: #ffffff;
+  }
+  
+  /* ألوان الوضع الداكن */
+  .dark {
+    --bg-color: #1f2937;
+    --text-color: #f9fafb;
+    --button-bg: #22c55e;
+  }
+  
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .controls {
+    display: flex;
+    gap: 10px;
+  }
+  
+  button, select {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .entry {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .entry input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .delete-btn {
+    background-color: red;
+  }
+  .toggle-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+  }
+  .toggle-icon.rotate {
+    transform: rotate(180deg);
+  }
+  .entry {
+    display: flex;
+    gap: 10px;           /* مسافة بين الحقول داخل كل task */
+    margin-bottom: 10px; /* 🆕 مسافة بين كل task والآخر */
+    flex-wrap: wrap;
+  }
+  .watermark {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.2; /* شفافية العلامة المائية */
+    margin-top: 30px;
+    pointer-events: none; /* لا تمنع النقر على العناصر الأخرى */
+  }
+  
