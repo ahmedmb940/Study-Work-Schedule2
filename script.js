@@ -145,3 +145,27 @@ window.onload = () => {
     ? "☀️"
     : "🌙";
 };
+const alarmSound = new Audio("https://www.soundjay.com/buttons/sounds/beep-07.mp3");
+
+function checkAlarms() {
+  const now = new Date();
+  const currentTime = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")}`;
+  schedule.forEach((item) => {
+    if (item.alarm && item.alarm === currentTime && !item.alarmTriggered) {
+      alert(`⏰ Alarm: ${item.task} (${item.time})`);
+      alarmSound.play();
+      item.alarmTriggered = true; // منع التكرار
+    }
+  });
+}
+
+setInterval(checkAlarms, 60000); // تحقق كل دقيقة
+const alarmInput = document.createElement("input");
+alarmInput.type = "time";
+alarmInput.value = item.alarm || "";
+alarmInput.oninput = (e) => {
+  schedule[index].alarm = e.target.value;
+  schedule[index].alarmTriggered = false; // إعادة تعيين عند التعديل
+  saveSchedule();
+};
+entry.appendChild(alarmInput);
